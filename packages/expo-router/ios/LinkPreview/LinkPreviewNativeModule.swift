@@ -75,6 +75,26 @@ public class LinkPreviewNativeModule: Module {
 
       Events("onSelected")
     }
+
+    View(LinkZoomTransitionSource.self) {
+      Prop("disableForceFlatten") { (v: LinkZoomTransitionSource, d: Bool) in
+        // This prop is used in ExpoShadowNode in order to disable force flattening, when display: contents is used
+      }
+      Prop("identifier") { (view: LinkZoomTransitionSource, identifier: String) in
+        view.identifier = identifier
+      }
+    }
+
+    View(LinkZoomTransitionEnabler.self) {
+      Prop("zoomTransitionSourceIdentifier") {
+        (view: LinkZoomTransitionEnabler, identifier: String) in
+        print("Setting zoomTransitionSourceIdentifier to", identifier)
+        view.zoomTransitionSourceIdentifier = identifier
+      }
+      Prop("disableForceFlatten") { (v: LinkZoomTransitionEnabler, d: Bool) in
+        // This prop is used in ExpoShadowNode in order to disable force flattening, when display: contents is used
+      }
+    }
   }
 }
 

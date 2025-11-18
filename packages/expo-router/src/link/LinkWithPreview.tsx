@@ -54,6 +54,14 @@ export function LinkWithPreview({ children, ...rest }: LinkProps) {
     }
   }, [rest.href, rest.replace]);
 
+  useEffect(() => {
+    if (rest.unstable_transition === 'zoom') {
+      console.warn(
+        '[expo-router] `unstable_transition="zoom"` may not work as expected when used with Link.Preview. Please test thoroughly on your target devices.'
+      );
+    }
+  }, [rest.unstable_transition]);
+
   const triggerElement = React.useMemo(
     () => getFirstChildOfType(children, LinkTrigger),
     [children]

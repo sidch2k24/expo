@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import { type ViewProps } from 'react-native';
 export interface NativeLinkPreviewActionProps {
     title: string;
@@ -38,4 +39,10 @@ export interface NativeLinkPreviewContentProps extends ViewProps {
     };
 }
 export declare function NativeLinkPreviewContent(props: NativeLinkPreviewContentProps): import("react").JSX.Element | null;
+export declare function LinkZoomTransitionEnabler(props: {
+    zoomTransitionSourceIdentifier: string;
+}): import("react").JSX.Element | null;
+export declare function LinkZoomTransitionSource(props: PropsWithChildren<{
+    identifier: string;
+}>): import("react").JSX.Element | null;
 //# sourceMappingURL=native.d.ts.map

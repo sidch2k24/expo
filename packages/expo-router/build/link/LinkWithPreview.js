@@ -73,6 +73,11 @@ function LinkWithPreview({ children, ...rest }) {
             }
         }
     }, [rest.href, rest.replace]);
+    (0, react_1.useEffect)(() => {
+        if (rest.unstable_transition === 'zoom') {
+            console.warn('[expo-router] `unstable_transition="zoom"` may not work as expected when used with Link.Preview. Please test thoroughly on your target devices.');
+        }
+    }, [rest.unstable_transition]);
     const triggerElement = react_1.default.useMemo(() => getFirstChildOfType(children, elements_1.LinkTrigger), [children]);
     const menuElement = react_1.default.useMemo(() => getFirstChildOfType(children, elements_1.LinkMenu), [children]);
     const previewElement = react_1.default.useMemo(() => getFirstChildOfType(children, elements_1.LinkPreview), [children]);

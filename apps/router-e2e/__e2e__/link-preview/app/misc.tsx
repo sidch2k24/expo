@@ -27,7 +27,7 @@ const HomeIndex = () => {
       </View>
       <Text>Time: {time}</Text>
       <Spacer />
-      <Link href="/">
+      <Link href="/" unstable_transition="zoom">
         <Link.Trigger>Link.Preview: /</Link.Trigger>
         <Link.Preview />
       </Link>
@@ -40,10 +40,10 @@ const HomeIndex = () => {
       <Link href="/one">
         <Link.Trigger>Normal link with trigger: /one</Link.Trigger>
       </Link>
-      <Link href="/one" asChild>
+      <Link href="/one" asChild unstable_transition="zoom">
         <Link.Trigger>
           <TouchableOpacity>
-            <Text>Normal link with trigger asChild: /one</Text>
+            <Text>Normal link with trigger asChild: /one with zoom</Text>
           </TouchableOpacity>
         </Link.Trigger>
       </Link>
@@ -63,8 +63,8 @@ const HomeIndex = () => {
           </TouchableOpacity>
         </Link.Trigger>
       </Link>
-      <Link href="/one">
-        <Link.Trigger>Link.Preview: /one</Link.Trigger>
+      <Link href="/one" unstable_transition="zoom">
+        <Link.Trigger>Link.Preview: /one with zoom</Link.Trigger>
         <Link.Preview />
       </Link>
       <Link href="/one">

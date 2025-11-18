@@ -1,6 +1,7 @@
 'use client';
 
 import { requireNativeView } from 'expo';
+import type { PropsWithChildren } from 'react';
 import { Platform, StyleSheet, type ViewProps } from 'react-native';
 
 const areNativeViewsAvailable =
@@ -93,5 +94,43 @@ export function NativeLinkPreviewContent(props: NativeLinkPreviewContentProps) {
     } as const,
   ]);
   return <NativeLinkPreviewContentView {...props} style={style} />;
+}
+// #endregion
+
+// #region Zoom transition
+const LinkZoomTransitionEnablerNativeView: React.ComponentType<
+  ViewProps & { zoomTransitionSourceIdentifier: string; disableForceFlatten?: boolean }
+> | null = areNativeViewsAvailable
+  ? requireNativeView('ExpoRouterNativeLinkPreview', 'LinkZoomTransitionEnabler')
+  : null;
+export function LinkZoomTransitionEnabler(props: { zoomTransitionSourceIdentifier: string }) {
+  if (!LinkZoomTransitionEnablerNativeView) {
+    return null;
+  }
+  return (
+    <LinkZoomTransitionEnablerNativeView
+      {...props}
+      disableForceFlatten
+      style={{ display: 'contents' }}
+    />
+  );
+}
+
+const LinkZoomTransitionSourceNativeView: React.ComponentType<
+  ViewProps & { identifier: string; disableForceFlatten?: boolean }
+> | null = areNativeViewsAvailable
+  ? requireNativeView('ExpoRouterNativeLinkPreview', 'LinkZoomTransitionSource')
+  : null;
+export function LinkZoomTransitionSource(props: PropsWithChildren<{ identifier: string }>) {
+  if (!LinkZoomTransitionSourceNativeView) {
+    return null;
+  }
+  return (
+    <LinkZoomTransitionSourceNativeView
+      {...props}
+      disableForceFlatten
+      style={{ display: 'contents' }}
+    />
+  );
 }
 // #endregion
