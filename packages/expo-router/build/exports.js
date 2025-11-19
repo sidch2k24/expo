@@ -36,7 +36,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VectorIcon = exports.Label = exports.Icon = exports.Badge = exports.useFocusEffect = exports.useNavigation = exports.SplashScreen = exports.ErrorBoundary = exports.useSitemap = exports.Sitemap = exports.Unmatched = exports.ExpoRoot = exports.Slot = exports.Navigator = exports.withLayoutContext = exports.useIsPreview = exports.router = exports.useLoaderData = exports.useRootNavigationState = exports.useRootNavigation = exports.useSegments = exports.useLocalSearchParams = exports.useGlobalSearchParams = exports.useNavigationContainerRef = exports.usePathname = exports.useUnstableGlobalHref = exports.useRouter = void 0;
+exports.Toolbar = exports.VectorIcon = exports.Label = exports.Icon = exports.Badge = exports.useFocusEffect = exports.useNavigation = exports.SplashScreen = exports.ErrorBoundary = exports.useSitemap = exports.Sitemap = exports.Unmatched = exports.ExpoRoot = exports.Slot = exports.Navigator = exports.withLayoutContext = exports.useIsPreview = exports.router = exports.useLoaderData = exports.useRootNavigationState = exports.useRootNavigation = exports.useSegments = exports.useLocalSearchParams = exports.useGlobalSearchParams = exports.useNavigationContainerRef = exports.usePathname = exports.useUnstableGlobalHref = exports.useRouter = void 0;
 // Expo Router API
 const Navigator_1 = require("./views/Navigator");
 Object.defineProperty(exports, "Navigator", { enumerable: true, get: function () { return Navigator_1.Navigator; } });
@@ -87,4 +87,6 @@ Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { r
 Object.defineProperty(exports, "Icon", { enumerable: true, get: function () { return primitives_1.Icon; } });
 Object.defineProperty(exports, "Label", { enumerable: true, get: function () { return primitives_1.Label; } });
 Object.defineProperty(exports, "VectorIcon", { enumerable: true, get: function () { return primitives_1.VectorIcon; } });
+var toolbar_1 = require("./toolbar");
+Object.defineProperty(exports, "Toolbar", { enumerable: true, get: function () { return toolbar_1.Toolbar; } });
 //# sourceMappingURL=exports.js.map

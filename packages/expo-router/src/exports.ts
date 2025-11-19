@@ -60,3 +60,5 @@ export {
   VectorIcon,
   VectorIconProps,
 } from './primitives';
+
+export { Toolbar } from './toolbar';

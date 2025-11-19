@@ -1,6 +1,12 @@
 'use client';
 
-import React, { isValidElement, use, type PropsWithChildren, type ReactElement } from 'react';
+import React, {
+  isValidElement,
+  use,
+  useMemo,
+  type PropsWithChildren,
+  type ReactElement,
+} from 'react';
 import type { ViewStyle } from 'react-native';
 import type { SFSymbol } from 'sf-symbols-typescript';
 
@@ -9,6 +15,7 @@ import { HrefPreview } from './preview/HrefPreview';
 import { useIsPreview } from './preview/PreviewRouteContext';
 import { NativeLinkPreviewAction, NativeLinkPreviewContent } from './preview/native';
 import { Slot } from '../ui/Slot';
+import { nanoid } from 'nanoid/non-secure';
 
 export interface LinkMenuActionProps {
   /**
@@ -56,6 +63,7 @@ export interface LinkMenuActionProps {
  * @platform ios
  */
 export function LinkMenuAction(props: LinkMenuActionProps) {
+  const identifier = useMemo(() => nanoid(), []);
   if (useIsPreview() || process.env.EXPO_OS !== 'ios' || !use(InternalLinkPreviewContext)) {
     return null;
   }
@@ -65,6 +73,7 @@ export function LinkMenuAction(props: LinkMenuActionProps) {
       {...rest}
       onSelected={onPress}
       keepPresented={unstable_keepPresented}
+      identifier={identifier}
     />
   );
 }
@@ -120,6 +129,7 @@ export interface LinkMenuProps {
  * @platform ios
  */
 export const LinkMenu: React.FC<LinkMenuProps> = (props) => {
+  const identifier = useMemo(() => nanoid(), []);
   if (useIsPreview() || process.env.EXPO_OS !== 'ios' || !use(InternalLinkPreviewContext)) {
     return null;
   }
@@ -132,6 +142,7 @@ export const LinkMenu: React.FC<LinkMenuProps> = (props) => {
       title={props.title ?? ''}
       onSelected={() => {}}
       children={children}
+      identifier={identifier}
     />
   );
 };
